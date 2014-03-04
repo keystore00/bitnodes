@@ -30,10 +30,10 @@ Reference: https://en.bitcoin.it/wiki/Protocol_specification
 
 ---------------------------------------------------------------------
                PACKET STRUCTURE FOR BITCOIN PROTOCOL
-                     protocol version >= 70001
+                     protocol version >= 70002
 ---------------------------------------------------------------------
 [---MESSAGE---]
-[ 4] MAGIC_NUMBER   (\xF9\xBE\xB4\xD9)                      uint32_t
+[ 4] MAGIC_NUMBER   (\xFB\xC0\xB6\xDB)                      uint32_t
 [12] COMMAND                                                char[12]
 [ 4] LENGTH         <I ( len(payload) )                     uint32_t
 [ 4] CHECKSUM       ( sha256(sha256(payload))[:4] )         uint32_t
@@ -90,13 +90,13 @@ import sys
 import time
 from operator import itemgetter
 
-MAGIC_NUMBER = "\xF9\xBE\xB4\xD9"
-PROTOCOL_VERSION = 70001
+MAGIC_NUMBER = "\xFB\xC0\xB6\xDB"
+PROTOCOL_VERSION = 70002
 SERVICES = 1
-USER_AGENT = "/getaddr.bitnodes.io:0.1/"
-START_HEIGHT = 274475
+USER_AGENT = "/getaddr.monanodes.io:0.1/"
+START_HEIGHT = 60000
 RELAY = 0
-DEFAULT_PORT = 8333
+DEFAULT_PORT = 9401
 MAX_ADDR_COUNT = 1000
 
 SOCKET_BUFSIZE = 8192
@@ -427,7 +427,7 @@ class Connection:
 
 
 def main():
-    to_addr = ("88.198.62.174", 8333)
+    to_addr = ("54.200.16.71", 9401)
 
     handshake_msgs = []
     addr_msg = {}
